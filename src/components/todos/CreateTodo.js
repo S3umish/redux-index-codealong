@@ -3,16 +3,23 @@ import { connect } from 'react-redux'
 
 class CreateTodo extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      text: '',
-    };
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     text: '',
+  //   };
+  // }
+
+  state = {
+    text: ''
   }
 
   handleSubmit = event => {
     event.preventDefault();
     this.props.addTodo(this.state)
+    this.setState({
+      text: ''
+    })
   }
 
   handleChange(event) {
@@ -29,6 +36,7 @@ class CreateTodo extends Component {
           <input type="text" onChange={(event) => this.handleChange(event)} value={this.state.text}/>
           <input type="submit" />
        </form>
+       {/* {this.state.value} */}
      </div>
    );
   }
